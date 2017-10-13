@@ -12,7 +12,7 @@ public class ArraySorts {
 		int[] arr = { 1, 1, 5, 1, 3, 2, 2 };
 		// // System.out.println("Enter an array to sort ");
 		// // arr = Lecture6.ArrayStuff.takeinput();
-		insertionSort(arr);
+		selectionSort(arr);
 		Lecture6.ArrayStuff.display(arr);
 		System.out.print("Enter a number to be searched in the array ");
 		int search = scn.nextInt();

@@ -91,7 +91,6 @@ public class BST {
                 return node.left;
             } else {
                 node.data = MinRight(node);
-                this.size--;
                 node.right = remove(node.right, node.data);
             }
         }
