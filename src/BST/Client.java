@@ -13,8 +13,17 @@ public class Client {
 		bt.add(50);
 		bt.add(62);
 		bt.add(87);
-		bt.remove(11);
-		bt.remove(11);
+		bt.add(27);
+		bt.add(28);
+		bt.add(26);
+		bt.display();
+        System.out.println(bt.removewithReturn(11));
+        System.out.println(bt.removewithReturn(11));
+        System.out.println(bt.removewithReturn(12));
+        System.out.println(bt.removewithReturn(37));
+		System.out.println(bt.removewithReturn(31));
+
+
 
 		bt.display();
 		// bt.remove(50);

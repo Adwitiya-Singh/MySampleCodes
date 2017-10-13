@@ -97,6 +97,46 @@ public class BST {
         return node;
     }
 
+    public Integer removewithReturn(int data) {
+        return removewithReturn(null, this.root, data, null);
+    }
+
+    private Integer removewithReturn(Node parent, Node node, int data, Boolean isleft) {
+        if (node == null) {
+            return null;
+        }
+        if (data < node.data) {
+            return removewithReturn(node, node.left, data, true);
+        } else if (data > node.data) {
+            return removewithReturn(node, node.right, data, false);
+        } else {
+            if (isleft == null||node.left!=null&&node.right!=null) {
+                int temp = node.data;
+                node.data = MinRight(node);
+                removewithReturn(node, node.right, node.data, false);
+                return temp;
+            }else if (node.left == null) {
+                this.size--;
+                if (isleft) {
+                    parent.left = node.right;
+                } else {
+                    parent.right = node.right;
+                }
+                node.right = null;
+                return node.data;
+            } else{
+                this.size--;
+                if (isleft) {
+                    parent.left = node.right;
+                } else {
+                    parent.right = node.right;
+                }
+                node.left = null;
+                return node.data;
+            }
+        }
+    }
+
     private int MinRight(Node node) {
         Node now = node.right;
         while (now.left != null) {
