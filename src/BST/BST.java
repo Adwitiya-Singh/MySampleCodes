@@ -98,26 +98,26 @@ public class BST {
     }
 
     public Integer removewithReturn(int data) {
-        return removewithReturn(null, this.root, data, null);
+        return removewithReturn(null, this.root, data );
     }
 
-    private Integer removewithReturn(Node parent, Node node, int data, Boolean isleft) {
+    private Integer removewithReturn(Node parent, Node node, int data ) {
         if (node == null) {
             return null;
         }
         if (data < node.data) {
-            return removewithReturn(node, node.left, data, true);
+            return removewithReturn(node, node.left, data );
         } else if (data > node.data) {
-            return removewithReturn(node, node.right, data, false);
+            return removewithReturn(node, node.right, data );
         } else {
-            if (isleft == null||node.left!=null&&node.right!=null) {
+            if (parent == null||node.left!=null&&node.right!=null) {
                 int temp = node.data;
                 node.data = MinRight(node);
-                removewithReturn(node, node.right, node.data, false);
+                removewithReturn(node, node.right, node.data );
                 return temp;
             }else if (node.left == null) {
                 this.size--;
-                if (isleft) {
+                if (parent.left!=null&&parent.left.data == node.data) {
                     parent.left = node.right;
                 } else {
                     parent.right = node.right;
@@ -126,7 +126,7 @@ public class BST {
                 return node.data;
             } else{
                 this.size--;
-                if (isleft) {
+                if (parent.left.data == node.data) {
                     parent.left = node.right;
                 } else {
                     parent.right = node.right;
@@ -156,21 +156,21 @@ public class BST {
     public void display() {
         display(this.root);
         System.out.println();
-        System.out.print("*************************");
+        System.out.println("*************************");
     }
 
     private void display(Node node) {
         System.out.println();
         if (node.left != null) {
-            System.out.print(node.left.data + " -> ");
+            System.out.print(node.left.data + " <- ");
         } else {
-            System.out.print("END -> ");
+            System.out.print("END <- ");
         }
         System.out.print(node.data);
         if (node.right != null) {
-            System.out.print(" <- " + node.right.data);
+            System.out.print(" -> " + node.right.data);
         } else {
-            System.out.print(" <- END");
+            System.out.print(" -> END");
         }
         if (node.left != null) {
             this.display(node.left);
@@ -301,7 +301,8 @@ public class BST {
     }
 
     public void levelorder() {
-        LinkedList<Node> queue = new LinkedList<>();
+        LinkedList<Node> queue;
+        queue = new LinkedList<>();
         queue.addLast(this.root);
 
         while (!queue.isEmpty()) {
@@ -361,10 +362,8 @@ public class BST {
         diaPair rightPair = diaBtr(node.right);
         diaPair now = new diaPair();
         now.height = Math.max(leftPair.height, rightPair.height) + 1;
-        now.diameter = 2 * now.height + 2;
-        diaPair rv = new diaPair();
-        rv.diameter = Math.max(leftPair.diameter, Math.max(rightPair.diameter, now.diameter));
-        return rv;
+        now.diameter = leftPair.height + rightPair.height + 2;
+        return now;
 
     }
 

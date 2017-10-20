@@ -6,18 +6,31 @@ public class DP {
         // System.out.println(CountBoardPath(10, 0));
         // System.out.println(CBPBtr2(10, 0)[0]);
         // System.out.println(CBPItr(10, 0));
-        System.out.println(CountMazePath(3, 3, 0, 0));
+        //System.out.println(CountMazePath(3, 3, 0, 0));
 //		System.out.println(CMPItr(3, 3));
-        System.out.println(CMPBtr(3, 3));
+        //System.out.println(CMPBtr(3, 3));
+         int[] storage = new int[2];
+        System.out.println(Fibonacci(5 , storage));
     }
 
-    public static int FibBtr2(int n, int[] storage) {
+    public static int Fibonacci(int n) throws Exception {
+        if (n < 0) {
+            throw new Exception("Negative numbers not Allowed");
+        }
+        if (n == 0) {
+            return 1;
+        }
+        int[] storage = new int[2];
+        return Fibonacci(n, storage);
+    }
+
+    private static int Fibonacci(int n, int[] storage) {
         if (n == 1) {
             storage[0] = 1;
             storage[1] = 0;
             return 1;
         }
-        int fibnm1 = FibBtr2(n - 1, storage);
+        int fibnm1 = Fibonacci(n - 1, storage);
         int fibnm2 = storage[1];
         int fibn = fibnm1 + fibnm2;
         storage[1] = storage[0];

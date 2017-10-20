@@ -57,7 +57,7 @@ public class HCoder {
 			}
 		}
 		
-		Heap<Node> minHeap = new Heap<>(true);
+		Heap<Node> minHeap = new Heap<Node>(true);
 		
 		Set<Map.Entry<Character, Integer>> entries = freqmap.entrySet();
 		

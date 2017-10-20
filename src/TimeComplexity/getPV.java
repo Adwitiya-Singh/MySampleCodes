@@ -4,7 +4,7 @@ public class getPV {
 
 	public static void main(String[] args) {
 
-		System.out.println(getPV(1, 3));
+		System.out.println(getPV(2, 4));
 	}
 
 	public static int getPV(int x, int n) {

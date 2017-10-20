@@ -11,8 +11,7 @@ public class RecursioinTwo {
         // int[] arr = { -18, 1, 3, 5, -5, 6 };
         // maxSumSubArray(arr);
         // System.out.println(equalize(arr));
-        lexicographicalPrint(1000, 0);
-//		 stringchars("1123", 0,"");
+	 stringchars("1123", 0,"");
 //		countNQueens(8);
 //		 printNQueens(4);
 //		 System.out.println(getNQueens(4));

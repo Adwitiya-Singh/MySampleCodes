@@ -37,5 +37,4 @@ public class QuickSort {
 		quickSort(arr, lo, right);
 		quickSort(arr, left, hi);
 	}
-
 }

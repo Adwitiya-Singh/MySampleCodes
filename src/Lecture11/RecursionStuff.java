@@ -40,7 +40,8 @@ public class RecursionStuff {
 		// System.out.println(Subsequences("abc"));
 //		 System.out.println(SubsequencesWithAscii("try").s);
 		// System.out.println(Permutations("abcd"));
-		 System.out.println(Keypad("90"));
+        PrintSSWA("hello", "");
+        System.out.println(ConvertToNumber("as"));
 		// String str="AdwitiyayitiwdA";
 		// System.out.println(IsPalindrome(str, 0, str.length()-1));
 		// ReverseArray(a, 0, a.length-1);
